@@ -1,0 +1,107 @@
+/* src/styles/ProductCard.css */
+
+.product-card-container {
+  margin-bottom: 20px; /* Espaço entre o card e o próximo elemento */
+}
+
+.product-card {
+  position: relative;
+  width: 200px; /* Ajuste conforme necessário */
+  border: 0px none #fffdfd;
+  border-radius: 1%; /* Menos arredondado, ajuste conforme desejado */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(168, 168, 168, 0.1); /* Máscara preta clara */
+  transition: background 0.3s ease;
+  z-index: 1; /* Garante que o overlay fique sobre a imagem */
+}
+
+.product-card:hover::before {
+  background: rgba(230, 230, 230, 0.5); /* Máscara preta escura */
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 0; /* Garante que a imagem fique atrás do overlay */
+}
+
+.add-to-cart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #003366; /* Azul marinho */
+  color: white;
+  text-align: center;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  font-size: 14px;
+  z-index: 2; /* Garante que o texto e ícone fiquem sobre o overlay */
+}
+
+.product-card:hover .add-to-cart {
+  opacity: 1;
+  color: #fff; /* Cor do texto azul marinho ao passar o mouse */
+}
+
+.add-to-cart span {
+  margin-right: 8px; /* Espaço entre o texto e o ícone */
+}
+
+.add-to-cart .fa-shopping-cart {
+  font-size: 16px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+.product-title {
+  margin-top: 10px; /* Espaço entre o card e o título */
+  font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
+  overflow: hidden; /* Garante que o texto longo seja truncado */
+  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
+  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px; /* Espaço entre o título e os detalhes */
+}
+
+.in-stock {
+  padding: 2px 8px;
+  border: 1px solid #000; /* Cor da borda */
+  border-radius: 12px; /* Bordas arredondadas */
+  font-size: 12px;
+  color: #000; /* Cor do texto */
+}
+
+.in-stock-available {
+  background-color: #d4edda; /* Cor de fundo para "IN STOCK" */
+  border-color: #c3e6cb; /* Cor da borda para "IN STOCK" */
+}
+
+.in-stock-unavailable {
+  background-color: #f8d7da; /* Cor de fundo para "OUT OF STOCK" */
+  border-color: #f5c6cb; /* Cor da borda para "OUT OF STOCK" */
+}
+
+.price {
+  font-size: 18px; /* Aumenta o tamanho da fonte do preço */
+  font-weight: bold;
+}
