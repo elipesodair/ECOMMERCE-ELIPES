@@ -1,10 +1,18 @@
+.promo-banner {
+  background-color: #092643; /* Cor de fundo azul */
+  color: #dddddd; /* Cor do texto branco */
+  text-align: center; /* Centraliza o texto */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  /* Texto em negrito */
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ajusta o conteúdo entre logo, menu e ícones */
   padding: 20px 120px; /* Aumenta o padding lateral */
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
