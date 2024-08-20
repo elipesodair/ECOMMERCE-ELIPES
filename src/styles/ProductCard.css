@@ -1,19 +1,61 @@
-/* src/styles/ProductCard.css */
-
-.product-card-container {
-  margin-bottom: 20px; /* Espaço entre o card e o próximo elemento */
+/* Container principal que envolve todos os cards */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px; /* Espaço entre os cards */
+  padding-left: 270px; /* Espaço à esquerda para o menu (250px do menu + 20px de margem) */
+  width: calc(100% - 270px); /* Largura ajustada para compensar o espaço do menu */
+  box-sizing: border-box; /* Inclui padding e bordas na largura */
 }
 
+
+/* Menu de categorias */
+.menu-categories {
+  position: fixed;
+  top: 0;
+  left: 0; /* Ajustado para a esquerda */
+  width: 250px;
+  height: 100%;
+  padding: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Alterado para a direita */
+  box-sizing: border-box;
+}
+
+
+/* Container para cada card individual e seus detalhes */
+.product-card-container {
+  width: calc(33.333% - 20px); /* Três cards por linha, considerando o espaço entre eles */
+  text-align: center;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+
+/* Estilo para o card */
 .product-card {
   position: relative;
-  width: 200px; /* Ajuste conforme necessário */
+  width: 100%;
+  height: 250px;
   border: 0px none #fffdfd;
-  border-radius: 1%; /* Menos arredondado, ajuste conforme desejado */
+  border-radius: 1%;
   overflow: hidden;
   transition: transform 0.3s ease;
   cursor: pointer;
+  margin: 0 auto;
 }
 
+/* Estilo para a imagem do produto */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+/* Máscara inicial mais clara */
 .product-card::before {
   content: "";
   position: absolute;
@@ -21,28 +63,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(168, 168, 168, 0.1); /* Máscara preta clara */
+  background: rgba(168, 168, 168, 0.1);
   transition: background 0.3s ease;
-  z-index: 1; /* Garante que o overlay fique sobre a imagem */
+  z-index: 1;
 }
 
+/* Máscara mais escura ao passar o mouse */
 .product-card:hover::before {
-  background: rgba(230, 230, 230, 0.5); /* Máscara preta escura */
+  background: rgba(230, 230, 230, 0.5);
 }
 
-.card-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  z-index: 0; /* Garante que a imagem fique atrás do overlay */
-}
-
+/* Estilo para o botão de adicionar ao carrinho */
 .add-to-cart {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #003366; /* Azul marinho */
+  background-color: #003366;
   color: white;
   text-align: center;
   padding: 8px;
@@ -52,56 +89,92 @@
   opacity: 0;
   transition: opacity 0.3s ease, background-color 0.3s ease;
   font-size: 14px;
-  z-index: 2; /* Garante que o texto e ícone fiquem sobre o overlay */
+  z-index: 2;
 }
 
 .product-card:hover .add-to-cart {
   opacity: 1;
-  color: #fff; /* Cor do texto azul marinho ao passar o mouse */
+  color: #fff;
 }
 
 .add-to-cart span {
-  margin-right: 8px; /* Espaço entre o texto e o ícone */
+  margin-right: 8px;
 }
 
 .add-to-cart .fa-shopping-cart {
-  font-size: 16px; /* Ajuste o tamanho do ícone conforme necessário */
+  font-size: 16px;
 }
 
+/* Estilo para o título do produto */
 .product-title {
-  margin-top: 10px; /* Espaço entre o card e o título */
-  font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
-  overflow: hidden; /* Garante que o texto longo seja truncado */
-  text-overflow: ellipsis; /* Adiciona reticências (...) se o texto for muito longo */
-  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adicionei o valor 'ellipsis' */
+  max-width: 100%;
+  margin-top: 8px;
+  margin: 0 auto;
 }
 
+
+/* Estilo para o container de detalhes do produto */
 .product-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 8px; /* Espaço entre o título e os detalhes */
+  font-size: 14px;
+  margin-top: 14px;
+  color: #333;
 }
 
+/* Estilo para a indicação de estoque */
 .in-stock {
-  padding: 2px 8px;
-  border: 1px solid #000; /* Cor da borda */
-  border-radius: 12px; /* Bordas arredondadas */
-  font-size: 12px;
-  color: #000; /* Cor do texto */
-}
-
-.in-stock-available {
-  background-color: #d4edda; /* Cor de fundo para "IN STOCK" */
-  border-color: #c3e6cb; /* Cor da borda para "IN STOCK" */
-}
-
-.in-stock-unavailable {
-  background-color: #f8d7da; /* Cor de fundo para "OUT OF STOCK" */
-  border-color: #f5c6cb; /* Cor da borda para "OUT OF STOCK" */
-}
-
-.price {
-  font-size: 18px; /* Aumenta o tamanho da fonte do preço */
+  color: rgb(47, 47, 47);
   font-weight: bold;
+  border: 1px solid rgb(168, 168, 168);
+  padding: 1px 8px;
+  border-radius: 12px;
+  margin-right: 020px;
+  
+}
+
+/* Estilo para o preço */
+.price {
+  color: rgb(168, 168, 168);
+  font-weight:'bold';
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+  .product-card-container {
+    width: calc(50% - 10px); /* Dois cards por linha em telas médias */
+  }
+
+  .product-grid {
+    width: calc(100% - 250px); /* Ajusta a largura do grid para telas menores */
+    padding-left: 10px;
+  }
+
+  .menu-categories {
+    width: 200px; /* Diminui a largura do menu em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card-container {
+    width: 100%; /* Um card por linha em telas pequenas */
+  }
+
+  .product-grid {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .menu-categories {
+    width: 100%;
+    position: relative; /* O menu passa a ocupar toda a largura em telas pequenas */
+    height: auto;
+    box-shadow: none; /* Remove a sombra em telas menores */
+  }
 }

@@ -1,0 +1,131 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ajusta o conteúdo entre logo, menu e ícones */
+  padding: 20px 120px; /* Aumenta o padding lateral */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Menu de navegação */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  padding-right: 200px; /* Ajusta o espaço entre os itens */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Barra de busca e ícones */
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Ajusta o espaço entre os itens */
+}
+
+/* Barra de busca */
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.search-bar input {
+  padding: 15px 20px 15px 50px; /* Espaço para o ícone dentro do input */
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent; /* Remove o fundo para mostrar o ícone */
+}
+
+.search-button {
+  position: absolute;
+  left: 15px; /* Ajusta a posição do ícone dentro do input */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 18px;
+  z-index: 1; /* Garante que o ícone esteja acima do texto do input */
+}
+
+/* Ícones do carrinho e login */
+.cart-login {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon,
+.login-icon {
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.cart-icon:hover,
+.login-icon:hover {
+  color: #007bff;
+}
+
+/* Menu de navegação responsivo */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Alinha o conteúdo em coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 10px 20px; /* Ajusta o padding lateral em telas menores */
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Adiciona margem inferior para separar do menu */
+  }
+
+  .nav-menu {
+    flex-direction: column; /* Alinha o menu em coluna para telas menores */
+    gap: 10px; /* Ajusta o espaço entre os itens do menu */
+    margin-bottom: 10px; /* Adiciona margem inferior para separar da barra de busca */
+  }
+
+  .nav-menu a {
+    font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
+  }
+
+  .search-bar {
+    width: 100%; /* Faz a barra de busca ocupar toda a largura disponível */
+    margin-top: 10px; /* Adiciona margem superior para separar do menu */
+  }
+
+  .search-button {
+    left: 10px; /* Ajusta a posição do ícone dentro do input */
+  }
+
+  .cart-login {
+    gap: 10px; /* Ajusta o espaço entre os ícones */
+  }
+}

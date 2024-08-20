@@ -1,10 +1,14 @@
 import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa'; // Certifique-se de que o módulo esteja instalado
-import '../styles/ProductCard.css'; // Verifique se o caminho está correto
-import { Product } from '../types/Product'; // Importar a interface correta
+import { FaShoppingCart } from 'react-icons/fa';
+import '../styles/ProductCard.css';
 
 interface ProductCardProps {
-  product: Product; // Use a interface Product aqui
+  product: {
+    image: string;
+    title: string;
+    price: number;
+    inStock: boolean;
+  };
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
@@ -21,10 +25,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
       <div className="product-title">{product.title}</div>
       <div className="product-details">
-        <div className={`in-stock ${product.inStock ? 'in-stock-available' : 'in-stock-unavailable'}`}>
-          {product.inStock ? 'IN STOCK' : 'OUT OF STOCK'}
-        </div>
-        <div className="price">R${product.price.toFixed(2).replace('.', ',')}</div>
+        <div className="in-stock">{product.inStock ? 'In Stock' : 'Out of Stock'}</div>
+        <div className="price">R$ {product.price.toFixed(2)}</div>
       </div>
     </div>
   );
