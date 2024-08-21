@@ -1,8 +1,14 @@
-import React from 'react';
-import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/Header.css';
 
 const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <div className="promo-banner">
@@ -13,7 +19,10 @@ const Header: React.FC = () => {
           <img src="https://urotruzzi.com.br/images/hospitais/albert_einstein.png" alt="Ecommerce Logo" />
           <span>Ecommerce</span>
         </div>
-        <nav className="nav-menu">
+        <div className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <a href="/">Home</a>
           <a href="/category">Categorias</a>
           <a href="/about">Sobre</a>

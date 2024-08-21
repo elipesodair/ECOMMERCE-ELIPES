@@ -13,53 +13,53 @@ const CartPage: React.FC = () => {
   const tax = subtotal * 0.1; // Exemplo de 10% de imposto
   const total = subtotal + shipping + tax;
 
-  return (
-    <div className="cart-page">
+return (
+  <div className="cart-page">
+    <div className="cart-content">
       <h2>Seu Carrinho</h2>
       <hr />
-
-      <div className="cart-content">
-        <div className="cart-items">
-          {cartItems.map(item => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.title} className="item-image" />
-              <span className="item-title">{item.title}</span>
-              <div className="item-controls">
-                <button>-</button>
-                <span>{item.quantity}</span>
-                <button>+</button>
-              </div>
-              <span className="item-price">R$ {item.price.toFixed(2)}</span>
-              <button className="remove-button">X</button>
+      <div className="cart-items">
+        {cartItems.map(item => (
+          <div key={item.id} className="cart-item">
+            <img src={item.image} alt={item.title} className="item-image" />
+            <span className="item-title">{item.title}</span>
+            <span className="item-price">R$ {item.price.toFixed(2)}</span>
+            <div className="item-controls">
+              <button>-</button>
+              <span>{item.quantity}</span>
+              <button>+</button>
             </div>
-          ))}
-        </div>
-
-        <div className="order-summary">
-          <h3>Order Summary</h3>
-          <div className="summary-item">
-            <span>Subtotal</span>
-            <span>R$ {subtotal.toFixed(2)}</span>
+            <button className="remove-button">X</button>
           </div>
-          <div className="summary-item">
-            <span>Frete</span>
-            <span>R$ {shipping.toFixed(2)}</span>
-          </div>
-          <div className="summary-item">
-            <span>Tax</span>
-            <span>R$ {tax.toFixed(2)}</span>
-          </div>
-          <hr />
-          <div className="summary-total">
-            <span>Total</span>
-            <span>R$ {total.toFixed(2)}</span>
-          </div>
-          <button className="checkout-button">Checkout</button>
-          <a href="/" className="continue-shopping">Continue na Loja</a>
-        </div>
+        ))}
       </div>
     </div>
-  );
+
+    <div className="order-summary">
+      <h3>Order Summary</h3>
+      <div className="summary-item">
+        <span>Subtotal</span>
+        <span>R$ {subtotal.toFixed(2)}</span>
+      </div>
+      <div className="summary-item">
+        <span>Frete</span>
+        <span>R$ {shipping.toFixed(2)}</span>
+      </div>
+      <div className="summary-item">
+        <span>Tax</span>
+        <span>R$ {tax.toFixed(2)}</span>
+      </div>
+      <hr />
+      <div className="summary-total">
+        <span>Total</span>
+        <span>R$ {total.toFixed(2)}</span>
+      </div>
+      <button className="checkout-button">Checkout</button>
+      <a href="/" className="continue-shopping">Continue na Loja</a>
+    </div>
+  </div>
+);
+
 };
 
 export default CartPage;

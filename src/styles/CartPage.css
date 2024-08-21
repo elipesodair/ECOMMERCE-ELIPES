@@ -1,34 +1,37 @@
 .cart-page {
-  padding: 40px 100px; /* Adiciona margens maiores nas laterais */
+  display: flex;
+  justify-content: space-between;
+  padding: 70px;
+  /* Ajusta o padding para telas menores */
+  flex-direction: row; /* Mantém a disposição horizontal por padrão */
+}
+
+.cart-content {
+  flex: 1;
+  max-width: 60%; /* Limita a largura do conteúdo do carrinho ao lado esquerdo */
+  margin-right: 0px; /* Espaço entre o conteúdo do carrinho e o resumo do pedido */
 }
 
 h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 hr {
-  margin: 40px 0;
+  margin: 10px 0;
   border: none;
-  border-top:1px solid #ddd;
-}
-
-.cart-content {
-  display: flex;
-  justify-content: space-between;
+  border-top: 1px solid #ddd;
 }
 
 .cart-items {
-  flex: 1;
-  margin-right: 80px; /* Espaço entre os itens e o resumo do pedido */
+  width: 80%; /* Garante que os itens ocupem toda a largura disponível */
 }
 
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Mantém todos os elementos na mesma linha */
+  justify-content: space-between;
   padding: 20px 0;
-  border-bottom: 1px solid #ddd; /* Separação entre os itens */
 }
 
 .item-image {
@@ -39,54 +42,48 @@ hr {
 }
 
 .item-title {
-  flex: 3;
+  flex: 1; /* Reduz o espaço ocupado pelo título do item */
   font-size: 18px;
+}
+
+.item-price {
+  flex: 0 1 auto; /* Ajusta o preço para ocupar apenas o espaço necessário */
+  text-align: right;
+  font-size: 18px;
+  margin-right: 50px; /* Diminui a margem direita para reduzir o espaço entre o preço e os controles */
 }
 
 .item-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex: 1; /* Garante espaço adequado para os controles de quantidade */
-}
-
-.item-controls button {
-  padding: 5px 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.item-price {
-  flex: 1;
-  text-align: right;
-  font-size: 18px;
+  gap: 15px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 15px; /* Adiciona um pequeno espaço entre os controles e o botão de remover */
 }
 
 .remove-button {
   background-color: #d3d1d1;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 12px;
   cursor: pointer;
 }
 
 .order-summary {
-  flex: 1;
+  flex: 0.3;
   border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 8px;
-  margin-left: 50px; /* Espaço entre a lista de itens e o resumo do pedido */
-}
-
-.order-summary h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 600px; /* Aumenta a largura do resumo do pedido */
+  margin-left: auto; /* Garante que o resumo do pedido fique alinhado à direita */
 }
 
 .summary-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 50px;
 }
 
 .summary-total {
@@ -99,7 +96,7 @@ hr {
 .checkout-button {
   width: 100%;
   padding: 10px;
-  background-color: #c0c0c0;
+  background-color: #0b283c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -114,4 +111,81 @@ hr {
   margin-top: 10px;
   text-decoration: none;
   color: #313131;
+}
+
+/* Consultas de mídia para dispositivos menores */
+@media (max-width: 1024px) {
+  .cart-page {
+    flex-direction: column; /* Muda a disposição para coluna em telas menores */
+    padding: 40px;
+  }
+
+  .cart-content {
+    max-width: 100%; /* Permite que o conteúdo ocupe toda a largura disponível */
+    margin-right: 0;
+  }
+
+  .order-summary {
+    margin-left: 0;
+    margin-top: 20px; /* Adiciona espaço acima do resumo do pedido */
+    max-width: 100%; /* Ajusta a largura do resumo do pedido para a tela */
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 20px;
+  }
+
+  .cart-content {
+    margin-bottom: 20px; /* Adiciona espaço entre o conteúdo do carrinho e o resumo do pedido */
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .item-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .item-price {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .item-controls {
+    gap: 5px;
+    margin-right: 0;
+  }
+
+  .remove-button {
+    padding: 4px 8px;
+  }
+
+  .order-summary {
+    padding: 20px;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .summary-item {
+    margin-bottom: 15px;
+  }
+
+  .summary-total {
+    font-size: 14px;
+  }
+
+  .checkout-button {
+    font-size: 14px;
+  }
 }

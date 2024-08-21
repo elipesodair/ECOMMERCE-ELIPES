@@ -47,7 +47,7 @@
 }
 
 .pagination-button {
-  background-color: #007bff; /* Cor de fundo */
+  background-color: #ececec; /* Cor de fundo */
   border: none;
   color: white; /* Cor do texto */
   padding: 10px 15px; /* Espaçamento interno */
@@ -58,9 +58,9 @@
 }
 
 .pagination-button.active {
-  background-color: #0056b3; /* Cor diferente para o botão ativo */
+  background-color: #0b283c; /* Cor diferente para o botão ativo */
 }
 
 .pagination-button:hover {
-  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  background-color: #0f4b8b; /* Cor de fundo ao passar o mouse */
 }

@@ -1,17 +1,16 @@
 .promo-banner {
-  background-color: #092643; /* Cor de fundo azul */
+  background-color: #0b283c; /* Cor de fundo azul */
   color: #dddddd; /* Cor do texto branco */
   text-align: center; /* Centraliza o texto */
   padding: 10px; /* Espaçamento interno */
   font-size: 16px; /* Tamanho da fonte */
-  /* Texto em negrito */
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ajusta o conteúdo entre logo, menu e ícones */
-  padding: 20px 120px; /* Aumenta o padding lateral */
+  padding: 20px 120px; /* Padding lateral maior para telas grandes */
   background-color: #fff;
   position: relative;
 }
@@ -32,17 +31,26 @@
   font-weight: bold;
 }
 
+/* Botão de menu hamburguer */
+.menu-toggle {
+  display: none; /* Oculta o botão de menu em telas maiores */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+}
+
 /* Menu de navegação */
 .nav-menu {
   display: flex;
   gap: 30px;
   padding-right: 200px; /* Ajusta o espaço entre os itens */
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
 }
 
 /* Barra de busca e ícones */
@@ -103,11 +111,20 @@
 }
 
 /* Menu de navegação responsivo */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu.open {
+  display: flex; /* Exibe o menu quando estiver aberto */
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column; /* Alinha o conteúdo em coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    padding: 10px 20px; /* Ajusta o padding lateral em telas menores */
+    align-items: center; /* Centraliza o conteúdo */
+    padding: 10px; /* Ajusta o padding lateral em telas menores */
   }
 
   .logo {
@@ -115,18 +132,40 @@
   }
 
   .nav-menu {
+    display: none; /* Oculta o menu de navegação por padrão */
     flex-direction: column; /* Alinha o menu em coluna para telas menores */
     gap: 10px; /* Ajusta o espaço entre os itens do menu */
-    margin-bottom: 10px; /* Adiciona margem inferior para separar da barra de busca */
+    margin-top: 10px; /* Adiciona margem superior para separar da barra de busca */
+    width: 100%; /* Faz o menu ocupar toda a largura disponível */
+    background-color: #fff; /* Fundo branco para o menu */
+    position: absolute;
+    top: 60px; /* Posiciona o menu abaixo do logo */
+    left: 0;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao menu */
+    z-index: 10; /* Garante que o menu fique acima dos outros itens */
+  }
+
+  .nav-menu.open {
+    display: flex; /* Exibe o menu quando o botão está ativo */
   }
 
   .nav-menu a {
     font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
+    padding: 10px; /* Adiciona padding aos itens do menu */
+    text-align: center; /* Centraliza o texto nos itens do menu */
+  }
+
+  .search-cart {
+    flex-direction: row; /* Mantém a barra de busca e ícones em linha */
+    gap: 10px; /* Ajusta o espaço entre a barra de busca e os ícones */
+    width: 100%; /* Faz a barra de busca e ícones ocuparem toda a largura disponível */
+    margin-top: 10px; /* Adiciona margem superior para separar do menu */
   }
 
   .search-bar {
-    width: 100%; /* Faz a barra de busca ocupar toda a largura disponível */
-    margin-top: 10px; /* Adiciona margem superior para separar do menu */
+    flex: 1; /* Faz a barra de busca ocupar o espaço disponível */
+    margin-right: 10px; /* Adiciona margem direita para separar dos ícones */
   }
 
   .search-button {
@@ -135,5 +174,12 @@
 
   .cart-login {
     gap: 10px; /* Ajusta o espaço entre os ícones */
+  }
+
+  .menu-toggle {
+    display: flex; /* Exibe o botão de menu hamburguer em telas menores */
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }
