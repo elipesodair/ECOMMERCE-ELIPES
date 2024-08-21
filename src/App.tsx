@@ -6,20 +6,24 @@ import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CatalogPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import CartPage from './pages/CartPage'; // Importe o CartPage
 
 const App: React.FC = () => {
   const location = useLocation();
 
-  // Define as rotas que serão usadas para determinar a rota atual
   const routes = [
     { name: 'Home', path: '/' },
     { name: 'Categorias', path: '/category' },
     { name: 'Sobre', path: '/about' },
     { name: 'Contato', path: '/contact' },
+    { name: 'Carrinho', path: '/cart' }, // Adicione a rota do carrinho
   ];
 
-  // Encontra a rota atual
-  const currentRoute = routes.find(route => route.path === location.pathname) || { name: 'Not Found', path: location.pathname };
+  const currentRoute =
+    routes.find(route => route.path === location.pathname) || {
+      name: 'Not Found',
+      path: location.pathname,
+    };
 
   return (
     <>
@@ -31,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cart" element={<CartPage />} /> {/* Rota do carrinho */}
         </Routes>
       </div>
     </>
