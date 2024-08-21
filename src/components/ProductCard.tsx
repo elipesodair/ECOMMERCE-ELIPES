@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaHeart } from 'react-icons/fa';
 import '../styles/ProductCard.css';
 
 interface ProductCardProps {
@@ -17,6 +17,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="product-card">
         <div className="card-image">
           <img src={product.image} alt={product.title} />
+        </div>
+        <div className="favorite-icon">
+          <FaHeart />
         </div>
         <div className="add-to-cart">
           <span>Add to Cart</span>

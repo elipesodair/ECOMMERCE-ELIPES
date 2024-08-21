@@ -9,7 +9,6 @@
   box-sizing: border-box; /* Inclui padding e bordas na largura */
 }
 
-
 /* Menu de categorias */
 .menu-categories {
   position: fixed;
@@ -23,7 +22,6 @@
   box-sizing: border-box;
 }
 
-
 /* Container para cada card individual e seus detalhes */
 .product-card-container {
   width: calc(33.333% - 20px); /* Três cards por linha, considerando o espaço entre eles */
@@ -31,7 +29,6 @@
   margin-bottom: 16px;
   box-sizing: border-box;
 }
-
 
 /* Estilo para o card */
 .product-card {
@@ -53,6 +50,23 @@
   object-fit: cover;
   display: block;
   z-index: 0;
+}
+
+/* Ícone de coração */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: transparent; /* Inicialmente invisível */
+  padding: 4px;
+  cursor: pointer;
+  z-index: 2; /* Garante que o ícone fique acima dos outros elementos */
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.product-card:hover .favorite-icon {
+  color: gray; /* Exibe o ícone de coração em cinza ao passar o mouse */
 }
 
 /* Máscara inicial mais clara */
@@ -117,7 +131,6 @@
   margin: 0 auto;
 }
 
-
 /* Estilo para o container de detalhes do produto */
 .product-details {
   display: flex;
@@ -135,14 +148,13 @@
   border: 1px solid rgb(168, 168, 168);
   padding: 1px 8px;
   border-radius: 12px;
-  margin-right: 020px;
-  
+  margin-right: 20px;
 }
 
 /* Estilo para o preço */
 .price {
   color: rgb(168, 168, 168);
-  font-weight:'bold';
+  font-weight: bold;
 }
 
 /* Responsividade para dispositivos menores */
@@ -178,4 +190,3 @@
     box-shadow: none; /* Remove a sombra em telas menores */
   }
 }
-
