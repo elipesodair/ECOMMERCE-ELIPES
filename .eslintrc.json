@@ -21,7 +21,7 @@
     "@typescript-eslint"
   ],
   "rules": {
-    // Adicione suas regras personalizadas aqui
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
 

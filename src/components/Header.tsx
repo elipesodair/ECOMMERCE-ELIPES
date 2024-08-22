@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes } from 'react-icons/fa';
+import { useCart } from '../context/CartContext'; // Importe o hook do contexto do carrinho
 import '../styles/Header.css';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cart } = useCart(); // Utilize o hook do carrinho para acessar os itens do carrinho
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Calcula a quantidade total de itens no carrinho
+  const totalItemsInCart = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <>
@@ -38,6 +43,7 @@ const Header: React.FC = () => {
           <div className="cart-login">
             <a href="/cart" className="cart-icon">
               <FaShoppingCart />
+              {totalItemsInCart > 0 && <span className="cart-count">{totalItemsInCart}</span>} {/* Mostra a quantidade de itens */}
             </a>
             <a href="/login" className="login-icon">
               <FaUser />

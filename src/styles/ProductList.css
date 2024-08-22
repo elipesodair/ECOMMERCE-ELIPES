@@ -1,0 +1,13 @@
+/* src/styles/ProductList.css */
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.product-list .product-card {
+  flex: 1 1 calc(33% - 32px); /* Ajuste para 3 cards por linha com espaçamento */
+  margin: 16px;
+}
