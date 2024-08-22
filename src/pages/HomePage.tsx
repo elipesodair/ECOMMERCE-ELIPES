@@ -1,54 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
-import Pagination from '../components/Pagination'; // Importe o componente de paginação
-import { Product } from '../types/Product';
-import CategoryFilter from '../components/CategoryFilter'; // Importe o CategoryFilter
-import '../styles/HomePage.css'; // Adicione o CSS necessário
+import '../styles/HomePage.css'; // Importa o CSS para estilizar a página
+
+// Define a interface para os produtos
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  inStock: boolean;
+}
 
 const HomePage: React.FC = () => {
+  // Estado para armazenar a lista de produtos
   const [products, setProducts] = useState<Product[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(1);
 
+  // Hook para buscar produtos quando o componente é montado
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        const data = await response.json();
-        setProducts(data);
-        setTotalPages(Math.ceil(data.length / 10)); // Exemplo de cálculo de totalPages
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-    
-    fetchProducts();
-  }, []);
-  
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    // Lógica para carregar produtos da página selecionada
-  };
+    fetch('https://fakestoreapi.com/products') // Faz a requisição para a API
+      .then(res => res.json()) // Converte a resposta para JSON
+      .then(data => setProducts(data)) // Atualiza o estado com os produtos
+      .catch(error => console.error('Error fetching products:', error)); // Trata erros
+  }, []); // Dependência vazia significa que o efeito só roda na montagem
 
   return (
     <div className="home-page">
-      <aside className="category-filter">
-        <CategoryFilter />
-      </aside>
-      <main className="content">
-        <div className="product-list">
-          {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-        <Pagination 
-          currentPage={currentPage} 
-          totalPages={totalPages} 
-          onPageChange={handlePageChange} 
-        />
-      </main>
+      <h1>Our Products</h1> {/* Título da página */}
+      <div className="product-list">
+        {/* Mapeia a lista de produtos e renderiza um ProductCard para cada um */}
+        {products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default HomePage;
+export default HomePage; 

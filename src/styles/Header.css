@@ -1,21 +1,20 @@
 .promo-banner {
-  background-color: #0b283c; /* Cor de fundo azul */
-  color: #dddddd; /* Cor do texto branco */
-  text-align: center; /* Centraliza o texto */
-  padding: 10px; /* Espaçamento interno */
-  font-size: 16px; /* Tamanho da fonte */
+  background-color: #0b283c;
+  color: #dddddd;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ajusta o conteúdo entre logo, menu e ícones */
-  padding: 20px 120px; /* Padding lateral maior para telas grandes */
+  justify-content: space-between;
+  padding: 20px 120px;
   background-color: #fff;
   position: relative;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -31,9 +30,8 @@
   font-weight: bold;
 }
 
-/* Botão de menu hamburguer */
 .menu-toggle {
-  display: none; /* Oculta o botão de menu em telas maiores */
+  display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
@@ -46,21 +44,31 @@
   border-radius: 3px;
 }
 
-/* Menu de navegação */
 .nav-menu {
   display: flex;
   gap: 30px;
-  padding-right: 200px; /* Ajusta o espaço entre os itens */
+  padding-right: 200px;
 }
 
-/* Barra de busca e ícones */
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-menu a:hover {
+  color: #666;
+}
+
+.nav-menu a.active {
+  color: #000;
+}
+
 .search-cart {
   display: flex;
   align-items: center;
-  gap: 20px; /* Ajusta o espaço entre os itens */
+  gap: 20px;
 }
 
-/* Barra de busca */
 .search-bar {
   display: flex;
   align-items: center;
@@ -71,16 +79,16 @@
 }
 
 .search-bar input {
-  padding: 15px 20px 15px 50px; /* Espaço para o ícone dentro do input */
+  padding: 15px 20px 15px 50px;
   border: none;
   outline: none;
   flex: 1;
-  background: transparent; /* Remove o fundo para mostrar o ícone */
+  background: transparent;
 }
 
 .search-button {
   position: absolute;
-  left: 15px; /* Ajusta a posição do ícone dentro do input */
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
@@ -88,10 +96,9 @@
   cursor: pointer;
   color: #333;
   font-size: 18px;
-  z-index: 1; /* Garante que o ícone esteja acima do texto do input */
+  z-index: 1;
 }
 
-/* Ícones do carrinho e login */
 .cart-login {
   display: flex;
   align-items: center;
@@ -110,74 +117,73 @@
   color: #b3b4b4;
 }
 
-/* Menu de navegação responsivo */
 .nav-menu {
   display: flex;
   gap: 30px;
 }
 
 .nav-menu.open {
-  display: flex; /* Exibe o menu quando estiver aberto */
+  display: flex;
 }
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: column; /* Alinha o conteúdo em coluna */
-    align-items: center; /* Centraliza o conteúdo */
-    padding: 10px; /* Ajusta o padding lateral em telas menores */
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
 
   .logo {
-    margin-bottom: 10px; /* Adiciona margem inferior para separar do menu */
+    margin-bottom: 10px;
   }
 
   .nav-menu {
-    display: none; /* Oculta o menu de navegação por padrão */
-    flex-direction: column; /* Alinha o menu em coluna para telas menores */
-    gap: 10px; /* Ajusta o espaço entre os itens do menu */
-    margin-top: 10px; /* Adiciona margem superior para separar da barra de busca */
-    width: 100%; /* Faz o menu ocupar toda a largura disponível */
-    background-color: #fff; /* Fundo branco para o menu */
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+    background-color: #fff;
     position: absolute;
-    top: 60px; /* Posiciona o menu abaixo do logo */
+    top: 60px;
     left: 0;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao menu */
-    z-index: 10; /* Garante que o menu fique acima dos outros itens */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
   }
 
   .nav-menu.open {
-    display: flex; /* Exibe o menu quando o botão está ativo */
+    display: flex;
   }
 
   .nav-menu a {
-    font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
-    padding: 10px; /* Adiciona padding aos itens do menu */
-    text-align: center; /* Centraliza o texto nos itens do menu */
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
   }
 
   .search-cart {
-    flex-direction: row; /* Mantém a barra de busca e ícones em linha */
-    gap: 10px; /* Ajusta o espaço entre a barra de busca e os ícones */
-    width: 100%; /* Faz a barra de busca e ícones ocuparem toda a largura disponível */
-    margin-top: 10px; /* Adiciona margem superior para separar do menu */
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
 
   .search-bar {
-    flex: 1; /* Faz a barra de busca ocupar o espaço disponível */
-    margin-right: 10px; /* Adiciona margem direita para separar dos ícones */
+    flex: 1;
+    margin-right: 10px;
   }
 
   .search-button {
-    left: 10px; /* Ajusta a posição do ícone dentro do input */
+    left: 10px;
   }
 
   .cart-login {
-    gap: 10px; /* Ajusta o espaço entre os ícones */
+    gap: 10px;
   }
 
   .menu-toggle {
-    display: flex; /* Exibe o botão de menu hamburguer em telas menores */
+    display: flex;
     position: absolute;
     top: 20px;
     right: 20px;

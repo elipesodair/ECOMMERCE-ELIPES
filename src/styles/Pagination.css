@@ -5,20 +5,20 @@
 }
 
 .pagination-button {
-  background-color: #838384; /* Cor de fundo */
+  background-color: #838384;
   border: none;
-  color: white; /* Cor do texto */
-  padding: 10px 15px; /* Espaçamento interno */
-  margin: 0 5px; /* Espaço entre botões */
-  border-radius: 5px; /* Arredondamento dos cantos */
+  color: white;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .pagination-button.active {
-  background-color: #7f7f7f; /* Cor diferente para o botão ativo */
+  background-color: #7f7f7f;
 }
 
 .pagination-button:hover {
-  background-color: #cdced0; /* Cor de fundo ao passar o mouse */
+  background-color: #cdced0;
 }

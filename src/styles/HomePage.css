@@ -1,11 +1,11 @@
 .home-page {
   display: flex;
-  padding: 20px; /* Ajuste o padding conforme necessário */
+  padding: 20px;
 }
 
 .category-filter {
-  width: 250px; /* Largura do menu de categorias */
-  margin-right: 20px; /* Espaçamento entre o menu de categorias e a lista de produtos */
+  width: 250px;
+  margin-right: 20px;
 }
 
 .content {
@@ -17,15 +17,15 @@
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Espaçamento entre os cards dos produtos */
-  flex-grow: 1; /* Permite que a lista de produtos ocupe o espaço restante */
+  gap: 20px;
+  flex-grow: 1;
 }
 
 .product-card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px; /* Ajuste o padding conforme necessário */
-  width: 200px; /* Largura dos cards dos produtos */
+  padding: 20px;
+  width: 200px;
   text-align: center;
 }
 
@@ -43,24 +43,47 @@
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Espaço acima da paginação */
+  margin-top: 20px;
 }
 
 .pagination-button {
-  background-color: #ececec; /* Cor de fundo */
+  background-color: #ececec;
   border: none;
-  color: white; /* Cor do texto */
-  padding: 10px 15px; /* Espaçamento interno */
-  margin: 0 5px; /* Espaço entre botões */
-  border-radius: 5px; /* Arredondamento dos cantos */
+  color: #333;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .pagination-button.active {
-  background-color: #0b283c; /* Cor diferente para o botão ativo */
+  background-color: #0b283c;
+  color: #fff;
 }
 
 .pagination-button:hover {
-  background-color: #0f4b8b; /* Cor de fundo ao passar o mouse */
+  background-color: #0f4b8b;
+  color: #fff;
 }
+
+@media (max-width: 768px) {
+  .home-page {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .category-filter {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .product-list {
+    gap: 10px;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+}
+

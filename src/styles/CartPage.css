@@ -2,14 +2,13 @@
   display: flex;
   justify-content: space-between;
   padding: 70px;
-  /* Ajusta o padding para telas menores */
-  flex-direction: row; /* Mantém a disposição horizontal por padrão */
+  flex-direction: row;
 }
 
 .cart-content {
   flex: 1;
-  max-width: 60%; /* Limita a largura do conteúdo do carrinho ao lado esquerdo */
-  margin-right: 0px; /* Espaço entre o conteúdo do carrinho e o resumo do pedido */
+  max-width: 60%;
+  margin-right: 0px;
 }
 
 h2 {
@@ -24,7 +23,7 @@ hr {
 }
 
 .cart-items {
-  width: 80%; /* Garante que os itens ocupem toda a largura disponível */
+  width: 80%;
 }
 
 .cart-item {
@@ -42,15 +41,15 @@ hr {
 }
 
 .item-title {
-  flex: 1; /* Reduz o espaço ocupado pelo título do item */
+  flex: 1;
   font-size: 18px;
 }
 
 .item-price {
-  flex: 0 1 auto; /* Ajusta o preço para ocupar apenas o espaço necessário */
+  flex: 0 1 auto;
   text-align: right;
   font-size: 18px;
-  margin-right: 50px; /* Diminui a margem direita para reduzir o espaço entre o preço e os controles */
+  margin-right: 50px;
 }
 
 .item-controls {
@@ -60,7 +59,7 @@ hr {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-right: 15px; /* Adiciona um pequeno espaço entre os controles e o botão de remover */
+  margin-right: 15px;
 }
 
 .remove-button {
@@ -76,8 +75,8 @@ hr {
   border: 1px solid #ddd;
   padding: 40px;
   border-radius: 4px;
-  max-width: 600px; /* Aumenta a largura do resumo do pedido */
-  margin-left: auto; /* Garante que o resumo do pedido fique alinhado à direita */
+  max-width: 600px;
+  margin-left: auto;
 }
 
 .summary-item {
@@ -113,22 +112,21 @@ hr {
   color: #313131;
 }
 
-/* Consultas de mídia para dispositivos menores */
 @media (max-width: 1024px) {
   .cart-page {
-    flex-direction: column; /* Muda a disposição para coluna em telas menores */
+    flex-direction: column;
     padding: 40px;
   }
 
   .cart-content {
-    max-width: 100%; /* Permite que o conteúdo ocupe toda a largura disponível */
+    max-width: 100%;
     margin-right: 0;
   }
 
   .order-summary {
     margin-left: 0;
-    margin-top: 20px; /* Adiciona espaço acima do resumo do pedido */
-    max-width: 100%; /* Ajusta a largura do resumo do pedido para a tela */
+    margin-top: 20px;
+    max-width: 100%;
   }
 }
 
@@ -138,7 +136,7 @@ hr {
   }
 
   .cart-content {
-    margin-bottom: 20px; /* Adiciona espaço entre o conteúdo do carrinho e o resumo do pedido */
+    margin-bottom: 20px;
   }
 
   .cart-item {

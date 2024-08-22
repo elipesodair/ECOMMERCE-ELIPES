@@ -1,37 +1,35 @@
-// src/components/ProductList.tsx
-
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Product, ApiProduct } from '../types/Product';
 import ProductCard from './ProductCard';
-import { Product } from '../types/Product';
-import '../styles/ProductList.css';
-
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    // Função para buscar produtos da API
     const fetchProducts = async () => {
       try {
+        // Fazendo requisição para a API
         const response = await fetch('https://fakestoreapi.com/products');
-        const data = await response.json();
-        setProducts(data);
+        const data: ApiProduct[] = await response.json();
+        
+        // Transformando dados da API para o formato esperado
+        const productsWithStock: Product[] = data.map(product => ({
+          ...product,
+          inStock: true, // Define `inStock` para todos os produtos
+        }));
+        setProducts(productsWithStock);
       } catch (error) {
-        console.error('Failed to fetch products:', error);
-      } finally {
-        setLoading(false);
+        console.error('Falha ao buscar produtos:', error);
       }
     };
 
     fetchProducts();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="product-list">
+      {/* Mapeando e exibindo cada produto usando ProductCard */}
       {products.map(product => (
         <ProductCard key={product.id} product={product} />
       ))}

@@ -2,9 +2,9 @@
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px; /* Ajuste o padding conforme necessário */
-  width: 250px; /* Ajuste a largura conforme necessário */
-  margin-bottom: 20px; /* Adiciona espaço abaixo do card */
+  padding: 20px;
+  width: 250px;
+  margin-bottom: 20px;
   padding-bottom: 70px;
 }
 
@@ -24,10 +24,9 @@
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd; /* Linha dividindo cada item */
-  padding: 10px; /* Espaçamento top */
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
 }
-
 
 .category-card input[type="checkbox"] {
   margin-right: 10px;
@@ -41,5 +40,5 @@
 }
 
 .category-card input[type="checkbox"]:checked + label {
-  border-radius: 2px; /* Bordas arredondadas para o fundo */
+  border-radius: 2px;
 }
