@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
+import CategoryFilter from '../components/CategoryFilter'; // Importa o componente CategoryFilter
 import '../styles/HomePage.css'; // Importa o CSS para estilizar a página
 
 // Define a interface para os produtos
@@ -25,7 +26,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      <h1>Our Products</h1> {/* Título da página */}
+      <CategoryFilter /> {/* Substitui o <h1> pelo componente CategoryFilter */}
       <div className="product-list">
         {/* Mapeia a lista de produtos e renderiza um ProductCard para cada um */}
         {products.map(product => (
@@ -36,4 +37,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
