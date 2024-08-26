@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 70px;
   flex-direction: row;
+  flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
 }
 
 .cart-content {
@@ -31,6 +32,7 @@ hr {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  flex-wrap: wrap; /* Adiciona wrap para ajustar itens */
 }
 
 .item-image {
